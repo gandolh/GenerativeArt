@@ -1,0 +1,180 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height:100%;
+  overflow:hidden;
+}
+body{
+  display:grid;
+  grid-template-rows: 50px 1fr;
+}
+canvas {
+  display: block;
+}
+
+
+#displayAndSettings{
+  display:flex;
+}
+
+#DisplayCanvas, #SettingsParams{
+ height: 100%;
+}
+#SettingsParams{
+  background-color: #88bef5;
+  width:425px;
+  display:flex;
+  flex-direction: column;
+    overflow: auto;
+    max-height: calc(100vh - 50px);
+}
+
+
+#Controllers >div > div >div{
+  display:flex;
+  align-content:center;
+  padding:15px 10px;
+}
+
+#Colors > div > div {
+  display:flex;
+  align-content:center;
+  padding:15px 10px;
+}
+
+#Colors > div>div:not(#selectColoringAlgorithm){
+  justify-content: space-around;
+
+}
+
+#selectColoringAlgorithm{
+  display:flex;
+  flex-direction: column;
+}
+#Controllers >div > div>div:not(#TriggerAnimation_div,.soloButton ){
+  justify-content: space-around;
+}
+.ButtonsRow{
+  display:flex;
+  justify-content: space-around;
+  padding:10px 0px;
+}
+.ButtonsRow > div>button{
+  margin:0px 5px;
+}
+
+#gridMode_select, #SelectPositionAlgorithm_select,#Select_coloring_algorithm_select{
+  margin:5px 0px;
+  padding:10px 0px;
+
+}
+.soloButton{
+  padding:15px 10px;
+}
+input[type="color"]{
+  border:0;
+  padding:0;
+}
+
+
+#CustomColors_div_colection > div>div{
+  margin:7.5px 0px;
+  display:flex;
+  align-items: center;
+}
+
+.navBar{
+  width:100%;
+  background-color:#364f6b;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* margin: 0px 10px; */
+    padding: 0px 10px;
+}
+
+#TriggerAnimation_div{
+  justify-content: flex-end;
+  margin:0px 10px 10px 0px;
+}
+
+.x_close {
+	display: flex;
+	position: relative;
+	background-color: #dc3545;
+	color: #ecfffb;
+	border-radius: 100%;
+	width: 15px;
+	height: 15px;
+	font-size: 7.5px;
+	font-weight: 800;
+	justify-content: center;
+	align-items: center;
+	top: 2.5px;
+}
+.x_close_wrapper{
+  display: flex;
+  justify-content: flex-end;
+  height: 0;
+}
+
+.CategoryTitle{
+  justify-content: left !important;
+}
+
+.navbarButtons{
+  margin-left:10px;
+}
+
+#blockClickEventsOnPage{
+  display: none;
+top: 0;
+left: 0;
+transform: translate(0,0);
+width: 100vw;
+height: 100vh;
+background: 0;
+position: absolute;
+}
+
+#overlayProgressBar{
+  display:none;
+}
+#downloadMultiple{
+  display:none;
+}
+
+.centeredBox{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:50vw;
+  height:50vh;
+  background-color:#364f6b;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50px;
+  display:flex;
+}
+
+#downloadMultiple_tab{
+
+  color:white;
+}
+
+#LoadSketchesDM{
+  display:none;
+  width:50%;flex-direction: column;
+}
+
+#CancelDMWIP{
+  margin-top:10px;
+}
+
+#ZippingFiles_div{
+  padding: 15px 0px;
+  display:none;
+}

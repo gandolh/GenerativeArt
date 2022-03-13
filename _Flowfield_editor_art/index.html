@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="js/libraries/p5.js"></script>
+  <script src="js/libraries/CCapture.all.min.js"></script>
+  <script src="js/libraries/jszip.min.js"></script>
+  <script src="js/libraries/FileSaver.min.js"></script>
+  
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="bootstrap.min.css" />
+
+</head>
+
+<body>
+  <div class="navBar">
+    <input type="file" id="ImportFile" style="display:none">
+    <button type="button" class="btn btn-info navbarButtons" id="download_multiple">Download multiple</button>
+    <button type="button" class="btn btn-info navbarButtons" id="Import">Import</button>
+    <button type="button" class="btn btn-info navbarButtons" id="Export">Export</button>
+    <button type="button" class="btn btn btn-danger navbarButtons" id="Record">Record</button>
+    <!--margin-left: 10px;-->
+    <button type="button" class="btn btn-success navbarButtons" id="download1x">Download</button>
+  </div>
+  <div id="displayAndSettings">
+    <div id="DisplayCanvas"></div>
+    <div id="SettingsParams">
+      <div id="DisplayModeButtons" class="ButtonsRow">
+        <button type="button" class="btn btn-primary">None</button>
+        <button type="button" class="btn btn-secondary">Grid</button>
+        <button type="button" class="btn btn-secondary">
+          Black and white
+        </button>
+        <button type="button" class="btn btn-secondary">Rendering</button>
+      </div>
+      <div id="Controllers">
+        <button id="DrawSpeedBtn" type="button" class="btn btn-secondary" style="margin:0px 10px">Draw Speed:
+          1x</button>
+        <div id="ForceRerender_div" style="justify-content: flex-start;"></div>
+        <!-- content generated in js -->
+
+        <div id="Details">
+          <div class="CategoryTitle" id="DetailsTitle">Details -</div>
+          <!-- for Select position Algorithm -->
+          <div class="paramSettings">
+            <div id="SelectPositionAlgorithm_div" style="flex-direction: column; display: flex">
+              <span>Selecting position algorithm:</span>
+              <select id="SelectPositionAlgorithm_select">
+                <option selected>Random selecting</option>
+                <option>Full grid</option>
+                <option>Circle packing</option>
+                <option>Starting from Edges</option>
+                <option>Starting from Center</option>
+              </select>
+            </div>
+
+            <div id="grid_scl_div">
+
+              <input id="grid_scl_inputValue" type="text" class="col-2" disabled />
+            </div>
+
+            <!-- For Grid options -->
+            <div id="gridMode_div" style="flex-direction: column; display: flex">
+              <span>Selecting grid Mode:</span>
+              <select id="gridMode_select">
+                <option selected>Perlin noise</option>
+                <option>Rounded</option>
+                <option>Non-continuous distortions</option>
+                <option>Totally random</option>
+              </select>
+            </div>
+
+            <!-- private for perlin noise-->
+            <div id="noise_scl_div"><input id="noise_scl_inputValue" type="text" class="col-2" disabled /></div>
+            <!-- Non continous -->
+            <div id="non_continuous_grade_div"><input id="non_continuous_grade_inputValue" type="text" class="col-2"
+                disabled /></div>
+            <!-- end non continuous -->
+
+
+            <!--end private-->
+            <div id="step_length_div"><input id="step_length_inputValue" type="text" class="col-2 p-0" disabled /></div>
+            <div id="num_steps_div"><input id="num_steps_inputValue" type="text" class="col-2" disabled /></div>
+            <div id="no_of_lines_div"><input id="no_of_lines_inputValue" type="text" class="col-2" disabled /></div>
+          </div>
+        </div>
+
+        <div id="Colors">
+          <div class="CategoryTitle">Colors -</div>
+          <div class="paramSettings">
+            <div id="Select_coloring_algorithm_div" style="flex-direction: column; display: flex">
+
+              <div id="selectColoringAlgorithm">
+                <span>Select coloring algorithm:</span>
+                <select id="Select_coloring_algorithm_select">
+                  <option selected>Totally random</option>
+                  <option>Noisy hue</option>
+                  <option>hue from 0 to 360</option>
+                  <option>Custom</option>
+                </select>
+
+              </div>
+            </div>
+            <div id="background_color_div" style="align-items: center;justify-content: space-around;"> </div>
+            <div id="strokeWeightRendering_div"><input id="strokeWeightRendering_inputValue" type="text" class="col-2"
+                disabled /></div>
+            <div id="AlphaChannel_div"><input id="AlphaChannel_inputValue" type="text" class="col-2" disabled /></div>
+            <div id="noiseSclRendering_div"><input id="noiseSclRendering_inputValue" type="text" class="col-2"
+                disabled /></div>
+
+            <div class="soloButton" id="new_noise_seed_div">
+              <button id="new_noise_seed_button" type="button" class="btn btn-secondary">
+                New seed
+              </button>
+            </div>
+            <div id="CustomColors_div_colection" style="justify-content:flex-start;flex-direction: column;">
+              <button id="CustomColors_button" type="button" class="btn btn-secondary"> Add Color</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="TriggerAnimation_div">
+        <button id="TriggerAnimation" class="btn btn-danger">
+          Stop animation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="blockClickEventsOnPage">
+
+    <div id="overlayProgressBar" class="centeredBox">
+      <h4 style="color: #fefefe;"> Converting to gif...</h4>
+      <div class="progress" style="width:50%;height: 25px;">
+        <div class="progress-bar" id="progressConvertToGif" role="progressbar" style="width: 0%" aria-valuenow="0"
+          aria-valuemin="0" aria-valuemax="100">0%</div>
+      </div>
+      <button type="button" class="btn btn-info navbarButtons" id="CloseLoadingGif"
+        style="margin-top: 10px;display:none">Close</button>
+    </div>
+
+    <div id="downloadMultiple_tab" class="centeredBox">
+      <div id="downloadMultipleForm">
+
+        <h4>Download multiple...</h4>
+
+        <div class="form-group">
+          <label for="TimeDM">Times in seconds</label>
+          <input type="text" class="form-control" id="TimeDM" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label for="num_of_sketches_DM">Number of sketches</label>
+          <input type="text" class="form-control" id="num_of_sketches_DM" placeholder="0">
+        </div>
+        <div>
+          <button type="button" class="btn btn-danger navbarButtons" id="CancelDM">Cancel</button>
+          <button type="button" class="btn btn-success navbarButtons" id="GoForItDM">Go for it</button>
+        </div>
+      </div>
+      
+      <div id="LoadSketchesDM">
+        <div class="progress" style="width:100%;height: 25px;">
+          <div class="progress-bar" id="progressDownloadMultiple" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25%</div>
+        </div>
+        <div class="align-items-center" id="ZippingFiles_div">
+          <strong>Zipping files, please wait</strong>
+          <div role="status" aria-hidden="true" style="margin-left: 10px;" class="spinner-border ml-auto"></div>
+        </div>
+        <button type="button" class="btn btn-danger navbarButtons" id="CancelDMWIP">Cancel</button>
+
+      </div>
+        
+
+    </div>
+  </div>
+
+
+
+  </div>
+  <script src="js/classes.js"></script>
+  <script src="js/technic.js"></script>
+  <script src="js/generateMultipleSketches.js"></script>
+
+  <script src="js/functionsForDraw.js"></script>
+  <script src="js/sketch.js"></script>
+  <script src="js/save.js"></script>
+</body>
+
+</html>

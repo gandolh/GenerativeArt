@@ -1,6 +1,6 @@
 let coords=[];  //x - index ; y =values
 let freq=[];
-let n=250;
+let n=50;
 function setup(){
   createCanvas(windowWidth,windowHeight);
   background(51);

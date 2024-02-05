@@ -12,7 +12,7 @@ def replace(folder_path):
             old_path = os.path.join(root, file)
             new_path = os.path.join(root, new_name)
 
-            os.rename(old_path, new_path)
+            # os.rename(old_path, new_path)
             # print(f'Renamed: {old_path} -> {new_path}')
 
 
@@ -24,8 +24,10 @@ def create_directory_structure_dict(folder_path):
     # Iterate through all directories in the specified folder
     for root, dirs, files in os.walk(folder_path):
         current_dir = os.path.relpath(root, folder_path)
-        if current_dir == '.':
+        if current_dir == '.' or current_dir.startswith('.') or current_dir.startswith("_"):
             continue
+
+        print(current_dir)
         # Split the relative path into a list of directory names
         dir_names = current_dir.split(os.path.sep)
 
@@ -47,7 +49,7 @@ def create_directory_structure_dict(folder_path):
 
 if __name__ == "__main__":
     # Specify the folder path here
-    folder_path = 'D:\projects\my_github\Random_Casualtiess_Portfolio\GenerativeArt'
+    folder_path = 'D:\projects\my_github\GenerativeArt'
     # do renaming
     # replace(folder_path)
 

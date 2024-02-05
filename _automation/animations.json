@@ -29,7 +29,6 @@
       "path": "Algorithms\\sort"
     }
   ],
-  "automation": [],
   "Cellular_Automata": [
     {
       "name": "The_game_of_life",
@@ -62,14 +61,6 @@
       "path": "ComplexAnimations\\post-impresionism"
     },
     {
-      "name": "post-impresionism",
-      "path": "ComplexAnimations\\post-impresionism\\postImpresionismProcessed"
-    },
-    {
-      "name": "postImpresionismProcessed",
-      "path": "ComplexAnimations\\post-impresionism\\postImpresionismProcessed"
-    },
-    {
       "name": "purpleRain",
       "path": "ComplexAnimations\\purpleRain"
     },
@@ -82,24 +73,8 @@
       "path": "ComplexAnimations\\stippling"
     },
     {
-      "name": "stippling",
-      "path": "ComplexAnimations\\stippling\\processed_images_and_assets"
-    },
-    {
-      "name": "processed_images_and_assets",
-      "path": "ComplexAnimations\\stippling\\processed_images_and_assets"
-    },
-    {
       "name": "voronoiMosaic",
       "path": "ComplexAnimations\\voronoiMosaic"
-    },
-    {
-      "name": "voronoiMosaic",
-      "path": "ComplexAnimations\\voronoiMosaic\\processedImages"
-    },
-    {
-      "name": "processedImages",
-      "path": "ComplexAnimations\\voronoiMosaic\\processedImages"
     },
     {
       "name": "waterTypePainting",
@@ -116,56 +91,12 @@
       "path": "Flowfields\\floodfillart"
     },
     {
-      "name": "floodfillart",
-      "path": "Flowfields\\floodfillart\\floodfill1080x1080"
-    },
-    {
-      "name": "floodfill1080x1080",
-      "path": "Flowfields\\floodfillart\\floodfill1080x1080"
-    },
-    {
-      "name": "floodfillart",
-      "path": "Flowfields\\floodfillart\\floodfillwallpapers"
-    },
-    {
-      "name": "floodfillwallpapers",
-      "path": "Flowfields\\floodfillart\\floodfillwallpapers"
-    },
-    {
       "name": "flowfield",
       "path": "Flowfields\\flowfield"
     },
     {
       "name": "FlowfieldGenerator_development",
       "path": "Flowfields\\FlowfieldGenerator_development"
-    },
-    {
-      "name": "FlowfieldGenerator_development",
-      "path": "Flowfields\\FlowfieldGenerator_development\\js"
-    },
-    {
-      "name": "js",
-      "path": "Flowfields\\FlowfieldGenerator_development\\js"
-    },
-    {
-      "name": "FlowfieldGenerator_development",
-      "path": "Flowfields\\FlowfieldGenerator_development\\js\\libraries"
-    },
-    {
-      "name": "js",
-      "path": "Flowfields\\FlowfieldGenerator_development\\js\\libraries"
-    },
-    {
-      "name": "libraries",
-      "path": "Flowfields\\FlowfieldGenerator_development\\js\\libraries"
-    },
-    {
-      "name": "FlowfieldGenerator_development",
-      "path": "Flowfields\\FlowfieldGenerator_development\\presets"
-    },
-    {
-      "name": "presets",
-      "path": "Flowfields\\FlowfieldGenerator_development\\presets"
     },
     {
       "name": "flowfield_2.0",
@@ -182,38 +113,6 @@
     {
       "name": "flowfield_2.0.3",
       "path": "Flowfields\\flowfield_2.0.3"
-    },
-    {
-      "name": "_Flowfield_editor_art",
-      "path": "Flowfields\\_Flowfield_editor_art"
-    },
-    {
-      "name": "_Flowfield_editor_art",
-      "path": "Flowfields\\_Flowfield_editor_art\\js"
-    },
-    {
-      "name": "js",
-      "path": "Flowfields\\_Flowfield_editor_art\\js"
-    },
-    {
-      "name": "_Flowfield_editor_art",
-      "path": "Flowfields\\_Flowfield_editor_art\\js\\libraries"
-    },
-    {
-      "name": "js",
-      "path": "Flowfields\\_Flowfield_editor_art\\js\\libraries"
-    },
-    {
-      "name": "libraries",
-      "path": "Flowfields\\_Flowfield_editor_art\\js\\libraries"
-    },
-    {
-      "name": "_Flowfield_editor_art",
-      "path": "Flowfields\\_Flowfield_editor_art\\presets"
-    },
-    {
-      "name": "presets",
-      "path": "Flowfields\\_Flowfield_editor_art\\presets"
     }
   ],
   "L-SyStems": [

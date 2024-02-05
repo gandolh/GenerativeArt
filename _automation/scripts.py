@@ -27,10 +27,12 @@ def create_directory_structure_dict(folder_path):
         if current_dir == '.' or current_dir.startswith('.') or current_dir.startswith("_"):
             continue
 
-        print(current_dir)
         # Split the relative path into a list of directory names
         dir_names = current_dir.split(os.path.sep)
 
+        if dir_names[-1].startswith("_") or "js" in dir_names:
+            continue
+        print(dir_names, end='\n')
         # Only consider the first layer of directories
         first_layer_dir = dir_names[0]
 
